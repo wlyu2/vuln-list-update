@@ -184,12 +184,10 @@ func run() error {
 		if err := k8s.Update(); err != nil {
 			return xerrors.Errorf("k8s update error: %w", err)
 		}
-		commitMsg = "Chainguard Security Data"
 	case "wrlinux":
 		if err := wrlinux.Update(); err != nil {
 			return xerrors.Errorf("WRLinux update error: %w", err)
 		}
-		commitMsg = "Wind River CVE Tracker"
 	default:
 		return xerrors.New("unknown target")
 	}
